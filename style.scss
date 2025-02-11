@@ -25,159 +25,172 @@ html, body{
 //inicio header:
 .webview {
     header {
-    margin-top: 20px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem 9%;
-    background-color: transparent;
-    filter: drop-shadow(10px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-  
-    .logo {
-    font-size: 3rem;
-    color: #21074b;
-    font-weight: 800;
-    cursor: pointer;
-    transition: 0.5s ease;
-  
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
-  
-      nav {
-        a {
-    font-size: 1.8rem;
-    color: #D3D3D3;
-    margin-left: 4rem;
-    font-weight: 500;
-    transition: 0.3s ease;
-    border-bottom: none;
-  
-          &.active,
-          &:hover {
-            color: #21074b;
-          }
-        }
-      }
+        margin-top: 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem 9%;
+        background-color: transparent;
+        filter: drop-shadow(10px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
     }
-  
-    .home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8rem;
-    background: rgb(131,58,180);
-    background: linear-gradient(135deg, rgba(131,58,180,1) 30%, rgba(0,79,108,1) 80%);
 
+    .navbar {
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: transparent;
+        padding: 1rem 2rem;
 
-    min-height: 100vh;
-    padding: 5rem 9%;
-  
-      .home-img {
-        img {
-          border-radius: 50%;
-          width: 32vw;
-          box-shadow: 0 0 25px solid;
-          transition: 0.2s linear;
-  
-          &:hover {
-            transform: scale(1.05);
-          }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #d3d3d3;
+            text-transform: uppercase;
+            cursor: pointer;
         }
-      }
-  
-      .home-content {
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-top: 40px;
 
-          span {
-            color: #21074b;
-          }
-        
-        }
-        .typing-text {
-            h3{
-                font-size: 20px;
-                margin-bottom: 1rem;
-                font-weight: 700; 
-  
-          span {
-            color: #21074b;
-          }
-        }
-        }
-  
-        p {
-            font-size: 1.4rem;
-          
-        }
-  
-        .social-icons {
-          a {
-          display: inline-flex;
-          justify-content: center;
-          align-items:center;
-          width: 4rem;
-          height: 4rem;
-          background-color: transparent;
-          border: 0.2rem solid #21074b;
-          font-size: 2rem;
-          border-radius: 50%;
-          margin: 3rem 1.5rem 3rem;
-          transition: 0.3 ease;
-          color: #21074b;
-  
-            &:hover {
-                color: black;
-                transform: scale(1.3) translateY(-5px);
-                background-color: violet;
-                box-shadow: 0 0 25px #4B0082;
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+
+            li {
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    font-size: 1.2rem;
+                    transition: color 0.3s;
+
+                    &:hover {
+                        color: #21074b;
+                    }
+                }
             }
-          }
         }
-  
-        .btn {
-        padding: 1rem 2.8rem;
-        background-color: #21074b;
-        border-radius: 4rem;
-        font-size: 1.6rem;
-        color: #D3D3D3;
-        letter-spacing: 0.3rem;
-        font-weight: 600;
-        border: 2px solid #4B0082;
 
-        transition: 0.3s ease;
-        cursor: pointer;
-  
-          &:hover {
-            transform: scale(1.03);
-            background-color: violet;
-            color: #161616;
-            box-shadow: 0 0 25px #4B0082;
-          }
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
         }
-      }
+    }
+
+    .home {
+        margin-top: 100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10rem;
+        min-height: 100vh;
+        padding: 5rem 9%;
+
+        .home-img {
+            img {
+                border-radius: 50%;
+                width: 40vw;
+                padding-left: 0;
+                box-shadow: 0 0 25px solid;
+                transition: 0.2s linear;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+
+        .home-content {
+            padding-left: 0px;
+            align-items: center;
+
+            h1 {
+                font-size: 3rem;
+                font-weight: 700;
+                line-height: 1.2;
+                margin-top: 40px;
+
+                span {
+                    color: #21074b;
+                }
+            }
+
+            h3.typing-text {
+                border-right: 2px solid #D3D3D3;
+                white-space: nowrap;
+                overflow: hidden;
+                display: inline-block;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                font-weight: 700;
+                color: #21074b;
+
+                animation: typing 4s steps(40) 1s normal both,
+                blinkCursor 500ms steps(40) infinite normal;
+            }
+
+            p {
+                font-size: 1.8rem;
+            }
+
+            .social-icons {
+                a {
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items:center;
+                    width: 4rem;
+                    height: 4rem;
+                    background-color: transparent;
+                    border: 0.2rem solid #21074b;
+                    font-size: 2rem;
+                    border-radius: 50%;
+                    margin: 3rem 1.5rem 3rem;
+                    transition: 0.3 ease;
+                    color: #21074b;
+
+                    &:hover {
+                        color: black;
+                        transform: scale(1.3) translateY(-5px);
+                        background-color: violet;
+                        box-shadow: 0 0 25px #4B0082;
+                    }
+                }
+            }
+
+            .btn {
+                padding: 1rem 2.8rem;
+                background-color: #21074b;
+                border-radius: 4rem;
+                font-size: 1.6rem;
+                color: #D3D3D3;
+                letter-spacing: 0.3rem;
+                font-weight: 600;
+                border: 2px solid #4B0082;
+                transition: 0.3s ease;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.03);
+                    background-color: violet;
+                    color: #161616;
+                    box-shadow: 0 0 25px #4B0082;
+                }
+            }
+        }
     }
 }
-
 //fim header
 
 //inicio serviços
 .webview{
     .servicos{
         width: 100%;
-        // background-color: #004f6c;
-        background: rgb(131,58,180);
-        background: linear-gradient(90deg, rgba(131,58,180,1) 36%, rgba(0,79,108,1) 83%);
         color: config.$color-white;
 
         .container{
@@ -487,742 +500,305 @@ html, body{
 
 //fim footer
 
-// typing text
-@keyframes cursor {
+//animação
+@keyframes typing {
+    from {
+      width: 0;
+    }
     to {
-        border-left: 1px solid;
+      width: 14em;
     }
-}
-
-@keyframes words {
-    0%, 40% {
-        content: "Desenvolvedora";
+  }
+  
+  @keyframes blinkCursor {
+    from {
+      border-right-color: #D3D3D3;
     }
-    41%, 80% {
-        content: "Dev Front End";
+    to {
+      border-right-color: transparent;
     }
-    81%, 100% {
-        content: "Front-end Engineer";
-    }
-}
-
-// Aplicando no elemento
-.typing-text {
-    font-size: 2rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-
-    &::after {
-        content: "";
-        animation: words 5s infinite, cursor 0.8s infinite alternate;
-        border-left: 2px solid #4B0082;
-        padding-left: 8px;
-    }
-}
-
+  }
+  
+  // Aplicação na classe com aninhamento
+  .typing-text {
+    animation: blinkCursor 500ms steps(25) infinite normal, 
+    typing 4s steps(40) 1s normal both;
+  }
+  
 
 
 //telas menores 
-@media only screen and (min-width: config.$media-mobile-l) {
-    .webview header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 20px;
-        a{
-            font-size: 1rem;
-        }
-        nav{
-            a{
-                font-size: 1.3rem;
-                margin-left: 4rem;
-                font-weight: 500;
-                transition: 0.3s ease;
-                border-bottom: none;
-                margin-bottom: 20px;
-            }
-        }
-        .home {
-            .home-img{
-                img{
-                    width: 20vw;
-                }
-            }
-            .home-content{
-                h1{
-                    font-size: 1.5rem;
-                }
-                h3{
-                    font-size: 1rem;
-                }
-                p{
-                    font-size: 1rem;
-                }
-            }
-        }
-    }
-.webview .servicos{
-    .container{
-        .s-carrousel{
-            margin-bottom: 40px;
-            height: 400px;
-        }
-    }
-}
-.webview .portifolios{
-    .container{
-        .p-title{
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-        .p-projetos{
-            .projeto{
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(2,1fr);
-                row-gap: 10px;
-                column-gap: 10px;
-
-                .photos{
-                    height: 100%;
-
-                    img{
-                        position: relative;
-
-                        &:hover{
-                            .descricao{
-                                position: absolute;
-                                display: flex;
-                                width: 100%;
-                                height: 50px;
-                                background-color: config.$color-purple;
-                                bottom: 0;
-                                left: 0;
-                                z-index: 9999;
-
-                                p{
-                                    display: block;
-                                    color: config.$color-white;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-.webview .contato{
-    .container{
-        .title{
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-        .formulario{
-            .form-group{
-                display: flex;
-                flex-direction: row;
-
-                .controls{
-                    padding: 5px;
-                }
-            }
-        }
-    }
-}
-}
-
-
-@media only screen and (min-width: config.$media-desktop){
-    .webview .intro{
-        .container{
-            h1{
-                font-size: 3rem;
-            }
-            p{
-                font-size: 1.6rem;
-            }
-            .m-auto-btn{
-                margin-top: 10px;
-
-                .btn-portifolio{
-                    @include config.font-paragraf;
-                    width: 180px;
-                    height: 40px;
-                    cursor: pointer;
-
-                    &:hover{
-                        background-color: config.$color-purple;
-                        border-radius: 6px;
-                        border: 1px solid config.$color-purple;
-                    }
-                }
-            }
-        }
-    }
-
-    .webview .sobre{
-        .container{
-            width: 90%;
-            margin: auto;
-
-            .title{
-                margin-top: 40px;
-                margin-bottom: 40px;
-
-                h2{
-                    font-size: 2rem;
-                }
-            }
-
-            .row{
-                display: grid;
-                grid-template-columns: 40% 60%;
-                margin-bottom: 40px;
-
-                .c-photo{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    padding: 10px;
-
-                    img{
-                        width: 100%;
-                        max-width: 400px;
-                    }
-                }
-
-                .c-descricao{
-                    padding: 10px;
-                    margin-top: 0px;
-
-                    p{
-                        font-size: 1.2rem;
-                        margin-bottom: 25px;
-                    }
-                    .habilidades{
-                        .h-item{
-                            .h-title{
-                                width: 100%;
-
-                                h3{
-                                    font-size: 1.2rem;
-                                }
-                            }
-
-                            .h-c-porcentagem{
-                                .h-porcentagem-geral{
-                                    span{
-                                        font-size: 1.2rem;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .webview .servicos{
-        .container{
-            width: 90%;
-            margin: auto;
-
-            .s-title{
-                margin-top: 40px;
-                margin-bottom: 40px;
-
-                h2{
-                    font-size: 2rem;
-                }
-            }
-
-            .s-carrousel{
-                width: 96%;
-                margin: auto;
-                margin-bottom: 40px;
-            }
-        }
-    }
-
-.webview .portifolios{
-    min-height: auto;
-
-    .container{
-        width: 90%;
-        margin: auto;
-
-        .p-title{
-            h2{
-                font-size: 2rem;
-            }
-        }
-        .p-projetos{
-            padding: 10px;
-
-            .projeto{
-                grid-template-columns: repeat(3,auto);
-                grid-template-rows: 1fr;
-                grid-auto-rows: 1fr;
-                row-gap: 10px;
-                column-gap: 10px;
-
-                .photos{
-                    height: 100%;
-
-                    .img{
-                        position: relative;
-
-                        &:hover{
-                            .descricao{
-                                position: absolute;
-                                display: flex;
-                                width: 100%;
-                                height: 50px;
-                                background-color: config.$color-purple;
-                                bottom: 0;
-                                left: 0;
-                                z-index: 9999;
-
-                                p{
-                                    display: block;
-                                    color: config.$color-white;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-.webview .contato{
-    margin-bottom: 50px;
-
-    .container{
-        width: 90%;
-        margin: auto;
-
-        .title{
-            margin-top: 30px;
-            margin-bottom: 30px;
-
-            h2{
-                font-size: 2rem;
-            }
-        }
-        .formulario{
-            form{
-                .form-group{
-                    display: flex;
-                    flex-direction: row;
-                    margin-bottom: 10px;
-
-                    .controls{
-                        padding: 5px;
-                    }
-                }
-            }
-        }
-    }
-  }
-}
-
-@media only screen and (max-width: config.$media-mobile-m){
-    .webview header{
-        display: flex;
-        justify-content:space-between;
-        align-items: center;
-        margin-bottom: 50px;
-        .logo{
-            font-size: 2rem;
-        }
-        nav{
-            gap: 0.5px; 
-            font-size: 3rem; 
-            margin-bottom: 50px;
-            a{
-                padding: 5px 10px; 
-                font-size: 0.9rem; 
-
-            }
-        }
-        
-        .home {
-            display: flex;
-            width: 100%;
-            .home-img{
-                img{
-                    width: 20vw;
-                }
-            }
-            .home-content{
-                h1{
-                    margin-top: 50px;
-                    font-size: 0.5rem;
-                    span{
-                        font-size: 1rem;
-                    }
-                }
-                h3 {
-                    margin-top: 50px;
-                    font-size: 1rem;
-                    span{
-                        font-size: 1rem;
-                    }
-                }
-                p{
-                    font-size: 1rem;
-                }
-            }
-        }
-    }
-    }
-    .webview .intro{
-        .container{
-            h1{
-                font-size: 3rem;
-            }
-            p{
-                font-size: 1.6rem;
-            }
-            .m-auto-btn{
-                margin-top: 10px;
-
-                .btn-portifolio{
-                    @include config.font-paragraf;
-                    width: 180px;
-                    height: 40px;
-                    cursor: pointer;
-
-                    &:hover{
-                        background-color: config.$color-purple;
-                        border-radius: 6px;
-                        border: 1px solid config.$color-purple;
-                    }
-                }
-            }
-        }
-    }
-
-    .webview .sobre{
-        .container{
-            width: 90%;
-            margin: auto;
-
-            .title{
-                margin-top: 40px;
-                margin-bottom: 40px;
-
-                h2{
-                    font-size: 2rem;
-                }
-            }
-
-            .row{
-                display: grid;
-                grid-template-columns: 40% 60%;
-                margin-bottom: 40px;
-
-                .c-photo{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    padding: 10px;
-
-                    img{
-                        width: 100%;
-                        max-width: 400px;
-                    }
-                }
-
-                .c-descricao{
-                    padding: 10px;
-                    margin-top: 0px;
-
-                    p{
-                        font-size: 1.2rem;
-                        margin-bottom: 25px;
-                    }
-                    .habilidades{
-                        .h-item{
-                            .h-title{
-                                width: 100%;
-
-                                h3{
-                                    font-size: 1.2rem;
-                                }
-                            }
-
-                            .h-c-porcentagem{
-                                .h-porcentagem-geral{
-                                    span{
-                                        font-size: 1.2rem;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .webview .servicos{
-        .container{
-            width: 90%;
-            margin: auto;
-
-            .s-title{
-                margin-top: 40px;
-                margin-bottom: 40px;
-
-                h2{
-                    font-size: 2rem;
-                }
-            }
-
-            .s-carrousel{
-                width: 96%;
-                margin: auto;
-                margin-bottom: 40px;
-            }
-        }
-    }
-
-.webview .portifolios{
-    min-height: auto;
-
-    .container{
-        width: 90%;
-        margin: auto;
-
-        .p-title{
-            h2{
-                font-size: 2rem;
-            }
-        }
-        .p-projetos{
-            padding: 10px;
-
-            .projeto{
-                grid-template-columns: repeat(3,auto);
-                grid-template-rows: 1fr;
-                grid-auto-rows: 1fr;
-                row-gap: 10px;
-                column-gap: 10px;
-
-                .photos{
-                    height: 100%;
-
-                    .img{
-                        position: relative;
-
-                        &:hover{
-                            .descricao{
-                                position: absolute;
-                                display: flex;
-                                width: 100%;
-                                height: 50px;
-                                background-color: config.$color-purple;
-                                bottom: 0;
-                                left: 0;
-                                z-index: 9999;
-
-                                p{
-                                    display: block;
-                                    color: config.$color-white;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-.webview .contato{
-    margin-bottom: 50px;
-
-    .container{
-        width: 90%;
-        margin: auto;
-
-        .title{
-            margin-top: 30px;
-            margin-bottom: 30px;
-
-            h2{
-                font-size: 2rem;
-            }
-        }
-        .formulario{
-            form{
-                .form-group{
-                    display: flex;
-                    flex-direction: row;
-                    margin-bottom: 10px;
-
-                    .controls{
-                        padding: 5px;
-                    }
-                }
-            }
-        }
-
+// @media only screen and (min-width: config.$media-mobile-l) {
+//     .webview header{
+//         position:fixed;
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         padding-bottom: 20px;
+//         a{
+//             font-size: 1rem;
+//         }
+//         nav{
+//             a{
+//                 font-size: 1.3rem;
+//                 margin-left: 4rem;
+//                 font-weight: 500;
+//                 transition: 0.3s ease;
+//                 border-bottom: none;
+//                 margin-bottom: 20px;
+//             }
+//         }
+//         .home {
+//             .home-img{
+//                 img{
+//                     width: 20vw;
+//                 }
+//             }
+//             .home-content{
+//                 h1{
+//                     font-size: 1.5rem;
+//                 }
+//                 h3{
+//                     font-size: 1rem;
+//                 }
+//                 p{
+//                     font-size: 1rem;
+//                 }
+//             }
+//         }
+//     }
+// .webview .servicos{
+//     .container{
+//         .s-carrousel{
+//             margin-bottom: 40px;
+//             height: 400px;
+//         }
+//     }
+// }
+// .webview .portifolios{
+//     .container{
+//         .p-title{
+//             margin-top: 30px;
+//             margin-bottom: 30px;
+//         }
+//         .p-projetos{
+//             .projeto{
+//                 grid-template-columns: repeat(2, 1fr);
+//                 grid-template-rows: repeat(2,1fr);
+//                 row-gap: 10px;
+//                 column-gap: 10px;
+
+//                 .photos{
+//                     height: 100%;
+
+//                     img{
+//                         position: relative;
+
+//                         &:hover{
+//                             .descricao{
+//                                 position: absolute;
+//                                 display: flex;
+//                                 width: 100%;
+//                                 height: 50px;
+//                                 background-color: config.$color-purple;
+//                                 bottom: 0;
+//                                 left: 0;
+//                                 z-index: 9999;
+
+//                                 p{
+//                                     display: block;
+//                                     color: config.$color-white;
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// .webview .contato{
+//     .container{
+//         .title{
+//             margin-top: 30px;
+//             margin-bottom: 30px;
+//         }
+//         .formulario{
+//             .form-group{
+//                 display: flex;
+//                 flex-direction: row;
+
+//                 .controls{
+//                     padding: 5px;
+//                 }
+//             }
+//         }
+//     }
+// }
+// }
+
+
+// @media only screen and (min-width: config.$media-desktop){
+//     .webview{
+//         header{
+//             .logo{
+//                 font-size: 1rem;
+//             }
+//             nav{
+//                 a{
+//                     font-size: 1rem;
+//                 }
+//             }
+//         }
+//         .home{
+//             .home-img{
+//                 img{
     
-    }
-}
-
-@media only screen and (min-width: config.$media-mobile-s) {
-    .webview {
-        header{
-            flex-direction: column;
-            display: flex;
-            justify-content:space-between;
-            align-items: center;
-            margin-bottom: 50px;
-            .logo{
-                font-size: 2rem;
-            }
-            nav{
-                gap: 0.5px; 
-                font-size: 1rem; 
-                margin-bottom: 50px;
-                a{
-                    padding: 10px 10px; 
-                    font-size: 1rem; 
-                    font-weight: 700;
-
-                }
-            }
-
-            .home {
-                flex-direction: column; 
-                padding: 10px;
-
-                .home-img{
-                    width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    img{
-                        width: 60%; // Reduz a imagem para telas menores
-                        max-width: 150px;
-                        margin: 0 auto; // Centraliza no contêiner
-                        display: block;
-                       
-                    }
-                }
-                .home-content {
-                    font-size: 1rem;
-                    margin-left: 20px;
-                
-                    // Agrupa estilos comuns para h1 e h3
-                    h1,
-                    h3 {
-                      margin-top: 50px;
-                      font-size: 1rem;
-                
-                      span {
-                        font-size: 1rem;
-                      }
-                    }
-                
-                    p {
-                      font-size: 1rem;
-                      margin-left: 20px;
-                    }
-                  }
-                .social-icons {
-                    margin-top: 10px;
+//                 }
+//             }
+//             .home-content{
+//                 margin-left: 10px;
+//                 margin-right: 10px;
+//                 h1{
+//                     font-size: 2rem;
+//                     span{
     
-                    a {
-                        font-size: 1.2rem;
-                        margin: 0 5px;
-                    }
-                }
+//                     }
+//                 }
+//                 h3{
+//                     font-size: 2rem;
+//                     span{
+//                         font-size: 1rem;
+//                     }
+//                 }
+//                 p{
+//                     font-size: 1rem;
+//                     margin-right: 40px;
+//                     margin-left: 10px;
+//                 }
+//                 .social-icons{
+//                     a{
     
-                .btn {
-                    font-size: 0.9rem;
-                    padding: 8px 15px;
-                    margin-top: 10px;
-                }
-            }
-        }
-    }
+//                     }
+//                 }
+//                 .btn{
     
-.webview .servicos{
-    .container{
-        .s-carrousel{
-            margin-bottom: 40px;
-            height: 400px;
-        }
-    }
-}
-.webview .portifolios{
-    .container{
-        .p-title{
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-        .p-projetos{
-            .projeto{
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(2,1fr);
-                row-gap: 10px;
-                column-gap: 10px;
+//                 }
+//             }
+//         }
+//        }
+// }
 
-                .photos{
-                    height: 100%;
+// @media only screen and (max-width: config.$media-mobile-m){
+//    .webview{
+//     header{
+//         .logo{
+//             font-size: 1rem;
+//         }
+//         nav{
+//             a{
+//                 font-size: 1rem;
+//             }
+//         }
+//     }
+//     .home{
+//         .home-img{
+//             img{
 
-                    img{
-                        position: relative;
+//             }
+//         }
+//         .home-content{
+//             margin-left: 10px;
+//             margin-right: 10px;
+//             margin-top: 20px;
+//             h1{
+//                 font-size: 2rem;
+//                 span{
 
-                        &:hover{
-                            .descricao{
-                                position: absolute;
-                                display: flex;
-                                width: 100%;
-                                height: 50px;
-                                background-color: config.$color-purple;
-                                bottom: 0;
-                                left: 0;
-                                z-index: 9999;
+//                 }
+//             }
+//             h3{
+//                 font-size: 2rem;
+//                 span{
+//                     font-size: 1rem;
+//                 }
+//             }
+//             p{
+//                 font-size: 1rem;
+//                 margin-right: 40px;
+//                 margin-left: 10px;
+//             }
+//             .social-icons{
+//                 a{
 
-                                p{
-                                    display: block;
-                                    color: config.$color-white;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+//                 }
+//             }
+//             .btn{
 
-.webview .contato{
-    .container{
-        .title{
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-        .formulario{
-            .form-group{
-                font-size: 1rem;
-                display: flex;
-                flex-direction: row;
+//             }
+//         }
+//     }
+//    }
+// }
 
-                .controls{
-                    padding: 5px;
-                }
-                }
-              
-            }
-        }
-    }
-}
-
-
+// @media only screen and (min-width: config.$media-mobile-s) {
+//     .webview{
+//         header{
+//             .logo{
+//                 font-size: 1rem;
+//                 margin-bottom: 15px;
+//             }
+//             nav{
+//                 padding-bottom: 30px;
+//                 a{
+//                     font-size: 1rem;
+//                     display: flex;
+//                 }
+//             }
+//         }
+//         .home{
+//             display: flex;
+//             flex-direction: row;
+//             justify-content: center;
+//             align-items: center;
+//             gap: 2rem;
+//             .home-img{
+//                 padding-right: 0;
+//                 padding-left: 30px;
+//                 img{
+//                     width: 50px;
+//                 }
+//             }
+//             .home-content{
+//                 margin-left: 5px;
+//                 margin-right: 100px;
+//                 h1{
+//                     font-size: 1.6rem;
+//                     font-weight: 700;
+//                     line-height: 1.3;
+//                 }
+//                 h3.typing-text{
+//                     font-size: 1.2rem;
+//                     span{
+//                         font-size: 1rem;
+//                     }
+//                 }
+//                 p{
+//                     font-size: 1.2rem;
+//                     margin-right: 40px;
+//                     margin-left: 10px;
+//                 }
+//                 .social-icons{
+//                     a{
+    
+//                     }
+//                 }
+//                 .btn{
+    
+//                 }
+//             }
+//         }
+//        }
+   
+// }
