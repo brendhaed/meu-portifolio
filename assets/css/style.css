@@ -525,12 +525,17 @@ html, body {
   .webview .home {
     gap: 1.1rem;
   }
+  .webview .home .home-img {
+    position: relative;
+    top: -250px;
+  }
   .webview .home .home-img img {
     padding-left: 0;
   }
   .webview .home .home-content {
     margin-bottom: 10px;
     width: 100%;
+    min-width: 200px;
   }
   .webview .home .home-content h3 {
     font-size: 1.1rem;
@@ -555,7 +560,7 @@ html, body {
   .webview .home .home-content .btn {
     padding: 9px 18px;
     font-size: 0.8rem;
-    margin-top: 60px;
+    margin-top: 80px;
   }
 }
 .webview .contato .container {
@@ -575,6 +580,7 @@ html, body {
 .webview .contato .container .formulario form .form-group .controls {
   padding: 5px;
 }
+
 @media only screen and (max-width: 375px) {
   .webview header {
     padding: 20px;
@@ -603,6 +609,7 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    min-width: 200px;
   }
   .webview .home .home-content h1 {
     font-size: 1.2rem;
@@ -660,7 +667,7 @@ html, body {
     font-size: 0.7rem;
   }
   .webview .home {
-    gap: 1.2rem;
+    gap: 1.1rem;
   }
   .webview .home .home-img img {
     padding-left: 10px;
@@ -668,11 +675,12 @@ html, body {
   .webview .home .home-content {
     margin-right: 25px;
     width: 100%;
+    min-width: 200px;
+  }
+  .webview .home .home-content h3 {
+    font-size: 1rem;
   }
   .webview .home .home-content h1 {
-    font-size: 1.2rem;
-  }
-  .webview .home .home-content h1 span {
     font-size: 1.2rem;
   }
   .webview .home .home-content h3.typing-text {
