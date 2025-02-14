@@ -560,7 +560,8 @@ html, body{
     .home {
         gap: 1.1rem;
         .home-img {
-           
+            position: relative; 
+            top: -250px;
             img {
                padding-left: 0;
             }
@@ -569,6 +570,7 @@ html, body{
         .home-content {
             margin-bottom: 10px;
             width: 100%;
+            min-width: 200px;
             h3{
                 font-size:1.1rem ;
             }
@@ -598,12 +600,12 @@ html, body{
             .btn {
                 padding: 9px 18px;
                 font-size: 0.8rem;
-                margin-top: 60px;
+                margin-top: 80px;
                
                 }
             }
         }
-    }
+    } //webview
 }
 
 
@@ -631,21 +633,6 @@ html, body{
                         flex-direction: row;
                         .controls{
                             padding: 5px;
-                            label{
-                               
-
-                            }
-                            input{
-                               
-                            }
-
-                            textarea{
-                             
-                            }
-                        }
-
-                        .btn-form-send{
-                          
                         }
                     }
                 }
@@ -697,6 +684,7 @@ html, body{
           display: flex;
           flex-direction: column; 
           justify-content: flex-end; 
+          min-width: 200px;
           h1 {
             font-size: 1.2rem;
   
@@ -748,9 +736,6 @@ html, body{
                   label {
                     font-size: 0.9rem;
                   }
-                  input {
-                    
-                  }
                   textarea {
                     width: 100%;
                     padding: 8px;
@@ -792,7 +777,7 @@ html, body{
     }
   
       .home {
-        gap: 1.2rem;
+        gap: 1.1rem;
   
         .home-img {
           img {
@@ -803,13 +788,14 @@ html, body{
         .home-content {
           margin-right: 25px;
           width: 100%;
+          min-width: 200px;
+
+          h3{
+            font-size: 1rem;
+          }
   
           h1 {
             font-size: 1.2rem;
-  
-            span {
-              font-size: 1.2rem;
-            }
           }
   
           h3.typing-text {
@@ -931,7 +917,6 @@ html, body{
   
           .social-icons {
             a {
-              // Estilos para links de ícones sociais aqui
             }
           }
   
@@ -959,14 +944,10 @@ html, body{
                   label {
                     font-size: 0.9rem;
                   }
-                  input, // Agrupando estilos para input e textarea
+                  input, 
                   textarea {
                     width: 100%;
                     padding: 8px;
-                  }
-  
-                  textarea { // Estilos específicos para textarea, se necessário
-                 
                   }
                 }
   
