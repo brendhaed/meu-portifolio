@@ -89,7 +89,7 @@ html, body {
 
 .webview header {
   margin-top: 20px;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -101,65 +101,92 @@ html, body {
   align-items: center;
   z-index: 100;
 }
-.webview header .logo {
-  font-size: 3rem;
-  color: #21074b;
-  font-weight: 800;
-  cursor: pointer;
-  transition: 0.5s ease;
+.webview .navbar {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  padding: 1rem 2rem;
 }
-.webview header .logo:hover {
-  transform: scale(1.1);
-}
-.webview header nav a {
+.webview .navbar .logo {
   font-size: 1.8rem;
-  color: #D3D3D3;
-  margin-left: 4rem;
-  font-weight: 500;
-  transition: 0.3s ease;
-  border-bottom: none;
+  font-weight: bold;
+  color: whitesmoke;
+  cursor: pointer;
+  margin-right: 50px;
 }
-.webview header nav a.active, .webview header nav a:hover {
+.webview .navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 5rem;
+}
+.webview .navbar .nav-links li a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+.webview .navbar .nav-links li a:hover {
   color: #21074b;
+}
+.webview .navbar .menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
 }
 .webview .home {
+  margin-top: 10px;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 8rem;
-  background: rgb(131, 58, 180);
-  background: linear-gradient(135deg, rgb(131, 58, 180) 30%, rgb(0, 79, 108) 80%);
+  gap: 10rem;
   min-height: 100vh;
   padding: 5rem 9%;
 }
 .webview .home .home-img img {
   border-radius: 50%;
-  width: 32vw;
+  width: 30vw;
+  padding-left: 0;
   box-shadow: 0 0 25px solid;
   transition: 0.2s linear;
+  margin-top: 5px;
 }
 .webview .home .home-img img:hover {
   transform: scale(1.05);
 }
+.webview .home .home-content {
+  padding-left: 0px;
+  align-items: center;
+}
+.webview .home .home-content h3 {
+  font-size: 1.5rem;
+  color: #21074b;
+}
 .webview .home .home-content h1 {
-  font-size: 3.5rem;
+  color: #161616;
+  font-size: 3rem;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.2;
   margin-top: 40px;
 }
-.webview .home .home-content h1 span {
-  color: #21074b;
-}
-.webview .home .home-content .typing-text h3 {
-  font-size: 20px;
+.webview .home .home-content h3.typing-text {
+  border-right: 2px solid #D3D3D3;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
   font-weight: 700;
-}
-.webview .home .home-content .typing-text h3 span {
   color: #21074b;
+  animation: typing 4s steps(40) 1s normal both, blinkCursor 500ms steps(40) infinite normal;
 }
 .webview .home .home-content p {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+  text-indent: 15px;
 }
 .webview .home .home-content .social-icons a {
   display: inline-flex;
@@ -183,11 +210,11 @@ html, body {
 }
 .webview .home .home-content .btn {
   padding: 1rem 2.8rem;
+  font-size: 1.6rem;
   background-color: #21074b;
   border-radius: 4rem;
-  font-size: 1.6rem;
   color: #D3D3D3;
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.1rem;
   font-weight: 600;
   border: 2px solid #4B0082;
   transition: 0.3s ease;
@@ -202,8 +229,6 @@ html, body {
 
 .webview .servicos {
   width: 100%;
-  background: rgb(131, 58, 180);
-  background: linear-gradient(90deg, rgb(131, 58, 180) 36%, rgb(0, 79, 108) 83%);
   color: white;
 }
 .webview .servicos .container {
@@ -307,11 +332,9 @@ html, body {
   width: 100%;
 }
 .webview .portifolios .container .p-projetos .projeto {
-  width: 100%;
   display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: repeat(3, auto);
-  row-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
 }
 .webview .portifolios .container .p-projetos .projeto .photos {
   width: 100%;
@@ -391,7 +414,7 @@ html, body {
 }
 .webview .contato .container .formulario form .form-group .controls {
   width: 100%;
-  min-height: 70px;
+  min-height: 50px;
 }
 .webview .contato .container .formulario form .form-group .controls label {
   font-family: "Poppins", sans-serif;
@@ -403,18 +426,17 @@ html, body {
   font-family: "Poppins", sans-serif;
   font-weight: 400px;
   width: 100%;
-  height: 50px;
+  height: 30px;
   padding: 10px;
   border: 1px solid #21074b;
   background-color: #D3D3D3;
-  border-radius: 10px;
 }
 .webview .contato .container .formulario form .form-group .controls input:active {
-  border: 1px solid #4B0082;
+  border: 2px solid violet;
   border-radius: 10px;
 }
 .webview .contato .container .formulario form .form-group .controls input:focus {
-  border: 1px solid #4B0082;
+  border: 2px solid violet;
 }
 .webview .contato .container .formulario form .form-group .controls textarea {
   font-family: "Poppins", sans-serif;
@@ -425,14 +447,12 @@ html, body {
   border: 1px solid #4B0082;
   outline: none;
   background-color: #D3D3D3;
-  border-radius: 10px;
 }
 .webview .contato .container .formulario form .form-group .controls textarea:active {
   border: 5px solid violet;
-  border-radius: 20px;
 }
 .webview .contato .container .formulario form .form-group .controls textarea:focus {
-  border: 1px solid #4B0082;
+  border: 2px solid violet;
 }
 .webview .contato .container .formulario form .form-group .btn-form-send {
   font-family: "Poppins", sans-serif;
@@ -468,557 +488,288 @@ html, body {
   color: white;
 }
 
-@keyframes cursor {
+@keyframes typing {
+  from {
+    width: 0;
+  }
   to {
-    border-left: 1px solid;
+    width: 14em;
   }
 }
-@keyframes words {
-  0%, 40% {
-    content: "Desenvolvedora";
+@keyframes blinkCursor {
+  from {
+    border-right-color: #D3D3D3;
   }
-  41%, 80% {
-    content: "Dev Front End";
-  }
-  81%, 100% {
-    content: "Front-end Engineer";
+  to {
+    border-right-color: transparent;
   }
 }
 .typing-text {
-  font-size: 2rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.typing-text::after {
-  content: "";
-  animation: words 5s infinite, cursor 0.8s infinite alternate;
-  border-left: 2px solid #4B0082;
-  padding-left: 8px;
+  animation: blinkCursor 500ms steps(25) infinite normal, typing 4s steps(40) 1s normal both;
 }
 
-@media only screen and (min-width: 425px) {
+@media only screen and (max-width: 425px) {
   .webview header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 20px;
+    padding: 20px;
   }
-  .webview header a {
-    font-size: 1rem;
-  }
-  .webview header nav a {
-    font-size: 1.3rem;
-    margin-left: 4rem;
-    font-weight: 500;
-    transition: 0.3s ease;
-    border-bottom: none;
-    margin-bottom: 20px;
-  }
-  .webview header .home .home-img img {
-    width: 20vw;
-  }
-  .webview header .home .home-content h1 {
-    font-size: 1.5rem;
-  }
-  .webview header .home .home-content h3 {
-    font-size: 1rem;
-  }
-  .webview header .home .home-content p {
-    font-size: 1rem;
-  }
-  .webview .servicos .container .s-carrousel {
-    margin-bottom: 40px;
-    height: 400px;
-  }
-  .webview .portifolios .container .p-title {
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-  .webview .portifolios .container .p-projetos .projeto {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    row-gap: 10px;
-    column-gap: 10px;
-  }
-  .webview .portifolios .container .p-projetos .projeto .photos {
-    height: 100%;
-  }
-  .webview .portifolios .container .p-projetos .projeto .photos img {
-    position: relative;
-  }
-  .webview .portifolios .container .p-projetos .projeto .photos img:hover .descricao {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 50px;
-    background-color: #4B0082;
-    bottom: 0;
-    left: 0;
-    z-index: 9999;
-  }
-  .webview .portifolios .container .p-projetos .projeto .photos img:hover .descricao p {
-    display: block;
-    color: white;
-  }
-  .webview .contato .container .title {
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-  .webview .contato .container .formulario .form-group {
-    display: flex;
-    flex-direction: row;
-  }
-  .webview .contato .container .formulario .form-group .controls {
-    padding: 5px;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  .webview .intro .container h1 {
-    font-size: 3rem;
-  }
-  .webview .intro .container p {
-    font-size: 1.6rem;
-  }
-  .webview .intro .container .m-auto-btn {
-    margin-top: 10px;
-  }
-  .webview .intro .container .m-auto-btn .btn-portifolio {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400px;
-    width: 180px;
-    height: 40px;
-    cursor: pointer;
-  }
-  .webview .intro .container .m-auto-btn .btn-portifolio:hover {
-    background-color: #4B0082;
-    border-radius: 6px;
-    border: 1px solid #4B0082;
-  }
-  .webview .sobre .container {
-    width: 90%;
-    margin: auto;
-  }
-  .webview .sobre .container .title {
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-  .webview .sobre .container .title h2 {
-    font-size: 2rem;
-  }
-  .webview .sobre .container .row {
-    display: grid;
-    grid-template-columns: 40% 60%;
-    margin-bottom: 40px;
-  }
-  .webview .sobre .container .row .c-photo {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 10px;
-  }
-  .webview .sobre .container .row .c-photo img {
-    width: 100%;
-    max-width: 400px;
-  }
-  .webview .sobre .container .row .c-descricao {
-    padding: 10px;
-    margin-top: 0px;
-  }
-  .webview .sobre .container .row .c-descricao p {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-  }
-  .webview .sobre .container .row .c-descricao .habilidades .h-item .h-title {
-    width: 100%;
-  }
-  .webview .sobre .container .row .c-descricao .habilidades .h-item .h-title h3 {
+  .webview header .navbar .logo {
+    margin-right: 20px;
     font-size: 1.2rem;
   }
-  .webview .sobre .container .row .c-descricao .habilidades .h-item .h-c-porcentagem .h-porcentagem-geral span {
-    font-size: 1.2rem;
+  .webview header .navbar .nav-links {
+    gap: 25px;
   }
-  .webview .servicos .container {
-    width: 90%;
-    margin: auto;
-  }
-  .webview .servicos .container .s-title {
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-  .webview .servicos .container .s-title h2 {
-    font-size: 2rem;
-  }
-  .webview .servicos .container .s-carrousel {
-    width: 96%;
-    margin: auto;
-    margin-bottom: 40px;
-  }
-  .webview .portifolios {
-    min-height: auto;
-  }
-  .webview .portifolios .container {
-    width: 90%;
-    margin: auto;
-  }
-  .webview .portifolios .container .p-title h2 {
-    font-size: 2rem;
-  }
-  .webview .portifolios .container .p-projetos {
-    padding: 10px;
-  }
-  .webview .portifolios .container .p-projetos .projeto {
-    grid-template-columns: repeat(3, auto);
-    grid-template-rows: 1fr;
-    grid-auto-rows: 1fr;
-    row-gap: 10px;
-    column-gap: 10px;
-  }
-  .webview .portifolios .container .p-projetos .projeto .photos {
-    height: 100%;
-  }
-  .webview .portifolios .container .p-projetos .projeto .photos .img {
-    position: relative;
-  }
-  .webview .portifolios .container .p-projetos .projeto .photos .img:hover .descricao {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 50px;
-    background-color: #4B0082;
-    bottom: 0;
-    left: 0;
-    z-index: 9999;
-  }
-  .webview .portifolios .container .p-projetos .projeto .photos .img:hover .descricao p {
-    display: block;
-    color: white;
-  }
-  .webview .contato {
-    margin-bottom: 50px;
-  }
-  .webview .contato .container {
-    width: 90%;
-    margin: auto;
-  }
-  .webview .contato .container .title {
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-  .webview .contato .container .title h2 {
-    font-size: 2rem;
-  }
-  .webview .contato .container .formulario form .form-group {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 10px;
-  }
-  .webview .contato .container .formulario form .form-group .controls {
-    padding: 5px;
-  }
-}
-@media only screen and (max-width: 375px) {
-  .webview header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-  .webview header .logo {
-    font-size: 2rem;
-  }
-  .webview header nav {
-    gap: 0.5px;
-    font-size: 3rem;
-    margin-bottom: 50px;
-  }
-  .webview header nav a {
-    padding: 5px 10px;
+  .webview header .navbar .nav-links li a {
     font-size: 0.9rem;
   }
-  .webview header .home {
-    display: flex;
+  .webview .home {
+    gap: 1.1rem;
+  }
+  .webview .home .home-img img {
+    padding-left: 0;
+  }
+  .webview .home .home-content {
+    margin-bottom: 10px;
     width: 100%;
   }
-  .webview header .home .home-img img {
-    width: 20vw;
+  .webview .home .home-content h3 {
+    font-size: 1.1rem;
   }
-  .webview header .home .home-content h1 {
-    margin-top: 50px;
-    font-size: 0.5rem;
+  .webview .home .home-content h1 {
+    font-size: 1.3rem;
   }
-  .webview header .home .home-content h1 span {
-    font-size: 1rem;
+  .webview .home .home-content h3.typing-text {
+    font-size: 1.1rem;
+    text-align: justify;
   }
-  .webview header .home .home-content h3 {
-    margin-top: 50px;
-    font-size: 1rem;
+  .webview .home .home-content p {
+    font-size: 1.1rem;
   }
-  .webview header .home .home-content h3 span {
-    font-size: 1rem;
+  .webview .home .home-content .social-icons a {
+    margin: 1.5rem 1.5rem 1.5rem;
   }
-  .webview header .home .home-content p {
-    font-size: 1rem;
+  .webview .home .home-content .social-icons a i {
+    font-size: 1.5rem;
+    transform: scale(1, 0.9);
   }
-}
-.webview .intro .container h1 {
-  font-size: 3rem;
-}
-.webview .intro .container p {
-  font-size: 1.6rem;
-}
-.webview .intro .container .m-auto-btn {
-  margin-top: 10px;
-}
-.webview .intro .container .m-auto-btn .btn-portifolio {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400px;
-  width: 180px;
-  height: 40px;
-  cursor: pointer;
-}
-.webview .intro .container .m-auto-btn .btn-portifolio:hover {
-  background-color: #4B0082;
-  border-radius: 6px;
-  border: 1px solid #4B0082;
-}
-
-.webview .sobre .container {
-  width: 90%;
-  margin: auto;
-}
-.webview .sobre .container .title {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-.webview .sobre .container .title h2 {
-  font-size: 2rem;
-}
-.webview .sobre .container .row {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  margin-bottom: 40px;
-}
-.webview .sobre .container .row .c-photo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 10px;
-}
-.webview .sobre .container .row .c-photo img {
-  width: 100%;
-  max-width: 400px;
-}
-.webview .sobre .container .row .c-descricao {
-  padding: 10px;
-  margin-top: 0px;
-}
-.webview .sobre .container .row .c-descricao p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
-}
-.webview .sobre .container .row .c-descricao .habilidades .h-item .h-title {
-  width: 100%;
-}
-.webview .sobre .container .row .c-descricao .habilidades .h-item .h-title h3 {
-  font-size: 1.2rem;
-}
-.webview .sobre .container .row .c-descricao .habilidades .h-item .h-c-porcentagem .h-porcentagem-geral span {
-  font-size: 1.2rem;
-}
-
-.webview .servicos .container {
-  width: 90%;
-  margin: auto;
-}
-.webview .servicos .container .s-title {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-.webview .servicos .container .s-title h2 {
-  font-size: 2rem;
-}
-.webview .servicos .container .s-carrousel {
-  width: 96%;
-  margin: auto;
-  margin-bottom: 40px;
-}
-
-.webview .portifolios {
-  min-height: auto;
-}
-.webview .portifolios .container {
-  width: 90%;
-  margin: auto;
-}
-.webview .portifolios .container .p-title h2 {
-  font-size: 2rem;
-}
-.webview .portifolios .container .p-projetos {
-  padding: 10px;
-}
-.webview .portifolios .container .p-projetos .projeto {
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: 1fr;
-  grid-auto-rows: 1fr;
-  row-gap: 10px;
-  column-gap: 10px;
-}
-.webview .portifolios .container .p-projetos .projeto .photos {
-  height: 100%;
-}
-.webview .portifolios .container .p-projetos .projeto .photos .img {
-  position: relative;
-}
-.webview .portifolios .container .p-projetos .projeto .photos .img:hover .descricao {
-  position: absolute;
-  display: flex;
-  width: 100%;
-  height: 50px;
-  background-color: #4B0082;
-  bottom: 0;
-  left: 0;
-  z-index: 9999;
-}
-.webview .portifolios .container .p-projetos .projeto .photos .img:hover .descricao p {
-  display: block;
-  color: white;
-}
-
-.webview .contato {
-  margin-bottom: 50px;
+  .webview .home .home-content .btn {
+    padding: 9px 18px;
+    font-size: 0.8rem;
+    margin-top: 60px;
+  }
 }
 .webview .contato .container {
-  width: 90%;
-  margin: auto;
+  padding: 20px;
 }
 .webview .contato .container .title {
   margin-top: 30px;
   margin-bottom: 30px;
 }
 .webview .contato .container .title h2 {
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 .webview .contato .container .formulario form .form-group {
   display: flex;
   flex-direction: row;
-  margin-bottom: 10px;
 }
 .webview .contato .container .formulario form .form-group .controls {
   padding: 5px;
 }
-
-@media only screen and (min-width: 320px) {
+@media only screen and (max-width: 375px) {
   .webview header {
-    flex-direction: column;
+    padding: 20px;
+  }
+  .webview header .navbar .logo {
+    font-size: 1rem;
+  }
+  .webview header .navbar .nav-links {
+    gap: 10px;
+  }
+  .webview header .navbar .nav-links li a {
+    font-size: 0.8rem;
+  }
+  .webview header .navbar .menu-toggle {
+    font-size: 1.2rem;
+  }
+  .webview .home {
+    gap: 1.5rem;
+  }
+  .webview .home .home-img img {
+    padding-left: 10px;
+  }
+  .webview .home .home-content {
+    margin-right: 20px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-  .webview header .logo {
-    font-size: 2rem;
-  }
-  .webview header nav {
-    gap: 0.5px;
-    font-size: 1rem;
-    margin-bottom: 50px;
-  }
-  .webview header nav a {
-    padding: 10px 10px;
-    font-size: 1rem;
-    font-weight: 700;
-  }
-  .webview header .home {
     flex-direction: column;
+    justify-content: flex-end;
+  }
+  .webview .home .home-content h1 {
+    font-size: 1.2rem;
+  }
+  .webview .home .home-content h1 span {
+    font-size: 1.2rem;
+  }
+  .webview .home .home-content h3.typing-text {
+    font-size: 1rem;
+  }
+  .webview .home .home-content p {
+    font-size: 0.75rem;
+  }
+  .webview .home .home-content .social-icons a {
+    margin: 0.5rem 0.5rem 0.5rem;
+  }
+  .webview .home .home-content .social-icons a i {
+    font-size: 1.5rem;
+    transform: scale(1, 0.9);
+  }
+  .webview .home .home-content .btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    margin-top: 20px;
+  }
+  .webview .contato {
     padding: 10px;
   }
-  .webview header .home .home-img {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .webview header .home .home-img img {
-    width: 60%;
-    max-width: 150px;
-    margin: 0 auto;
-    display: block;
-  }
-  .webview header .home .home-content {
-    font-size: 1rem;
-    margin-left: 20px;
-  }
-  .webview header .home .home-content h1,
-  .webview header .home .home-content h3 {
-    margin-top: 50px;
-    font-size: 1rem;
-  }
-  .webview header .home .home-content h1 span,
-  .webview header .home .home-content h3 span {
-    font-size: 1rem;
-  }
-  .webview header .home .home-content p {
-    font-size: 1rem;
-    margin-left: 20px;
-  }
-  .webview header .home .social-icons {
-    margin-top: 10px;
-  }
-  .webview header .home .social-icons a {
+  .webview .contato .container .title h2 {
     font-size: 1.2rem;
-    margin: 0 5px;
   }
-  .webview header .home .btn {
+  .webview .contato .container .formulario form .form-group .controls label {
     font-size: 0.9rem;
-    padding: 8px 15px;
-    margin-top: 10px;
   }
-  .webview .servicos .container .s-carrousel {
-    margin-bottom: 40px;
-    height: 400px;
-  }
-  .webview .portifolios .container .p-title {
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-  .webview .portifolios .container .p-projetos .projeto {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    row-gap: 10px;
-    column-gap: 10px;
-  }
-  .webview .portifolios .container .p-projetos .projeto .photos {
-    height: 100%;
-  }
-  .webview .portifolios .container .p-projetos .projeto .photos img {
-    position: relative;
-  }
-  .webview .portifolios .container .p-projetos .projeto .photos img:hover .descricao {
-    position: absolute;
-    display: flex;
+  .webview .contato .container .formulario form .form-group .controls textarea {
     width: 100%;
-    height: 50px;
-    background-color: #4B0082;
-    bottom: 0;
-    left: 0;
-    z-index: 9999;
+    padding: 8px;
   }
-  .webview .portifolios .container .p-projetos .projeto .photos img:hover .descricao p {
-    display: block;
-    color: white;
+  .webview .contato .container .formulario form .form-group .btn-form-send {
+    padding: 10px 15px;
+    font-size: 0.9rem;
   }
-  .webview .contato .container .title {
-    margin-top: 30px;
-    margin-bottom: 30px;
+}
+@media only screen and (max-width: 320px) {
+  .webview header {
+    padding: 20px;
   }
-  .webview .contato .container .formulario .form-group {
+  .webview header .navbar .logo {
+    font-size: 0.9rem;
+  }
+  .webview header .navbar .nav-links {
+    gap: 10px;
+  }
+  .webview header .navbar .nav-links li a {
+    font-size: 0.7rem;
+  }
+  .webview .home {
+    gap: 1.2rem;
+  }
+  .webview .home .home-img img {
+    padding-left: 10px;
+  }
+  .webview .home .home-content {
+    margin-right: 25px;
+    width: 100%;
+  }
+  .webview .home .home-content h1 {
+    font-size: 1.2rem;
+  }
+  .webview .home .home-content h1 span {
+    font-size: 1.2rem;
+  }
+  .webview .home .home-content h3.typing-text {
+    font-size: 0.6rem;
+  }
+  .webview .home .home-content p {
+    font-size: 0.5rem;
+  }
+  .webview .home .home-content .social-icons a {
+    margin: 0.5rem;
+  }
+  .webview .home .home-content .social-icons a i {
+    font-size: 1.5rem;
+    transform: scale(1, 0.9);
+  }
+  .webview .home .home-content .btn {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    margin-top: 15px;
+  }
+  .webview .contato {
+    padding: 10px;
+  }
+  .webview .contato .container .title h2 {
+    font-size: 1.2rem;
+  }
+  .webview .contato .container .formulario form .form-group .controls label {
+    font-size: 0.9rem;
+  }
+  .webview .contato .container .formulario form .form-group .controls input,
+  .webview .contato .container .formulario form .form-group .controls textarea {
+    width: 100%;
+    padding: 8px;
+  }
+  .webview .contato .container .formulario form .form-group .btn-form-send {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .webview header {
+    padding: 20px;
+  }
+  .webview header .navbar .logo {
+    font-size: 1.1rem;
+  }
+  .webview header .navbar .nav-links {
+    gap: 15px;
+  }
+  .webview header .navbar .nav-links li a {
     font-size: 1rem;
-    display: flex;
-    flex-direction: row;
   }
-  .webview .contato .container .formulario .form-group .controls {
-    padding: 5px;
+  .webview .home {
+    gap: 1.1rem;
+  }
+  .webview .home .home-img {
+    padding-left: 20px;
+  }
+  .webview .home .home-img img {
+    padding-left: 10px;
+  }
+  .webview .home .home-content {
+    width: 100%;
+  }
+  .webview .home .home-content h1 {
+    font-size: 1.4rem;
+  }
+  .webview .home .home-content h1 span {
+    font-size: 1.2rem;
+  }
+  .webview .home .home-content h3.typing-text {
+    font-size: 1.1rem;
+  }
+  .webview .home .home-content p {
+    font-size: 1.1rem;
+  }
+  .webview .home .home-content .btn {
+    padding: 1.5rem 2rem;
+    font-size: 1rem;
+  }
+  .webview .contato {
+    padding: 10px;
+  }
+  .webview .contato .container .title h2 {
+    font-size: 1.2rem;
+  }
+  .webview .contato .container .formulario form .form-group .controls label {
+    font-size: 0.9rem;
+  }
+  .webview .contato .container .formulario form .form-group .controls input,
+  .webview .contato .container .formulario form .form-group .controls textarea {
+    width: 100%;
+    padding: 8px;
+  }
+  .webview .contato .container .formulario form .form-group .btn-form-send {
+    padding: 10px 15px;
+    font-size: 1.2rem;
   }
 }
 
