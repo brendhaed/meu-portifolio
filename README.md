@@ -5,5 +5,5 @@ Este portfólio está sendo desenvolvido para demonstrar minhas habilidades e pr
 ## Tecnologias
 
 * HTML
-* CSS
+* Sass
 * JavaScript
